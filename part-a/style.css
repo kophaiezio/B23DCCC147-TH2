@@ -1,0 +1,80 @@
+:root {
+  font-family: Arial, sans-serif;
+  color: #222;
+  background: #f5f5f5;
+  --page: #f5f5f5;
+  --surface: #fff;
+  --ink: #222;
+  --muted: #666;
+  --line: #ccc;
+  --accent: #28643a;
+  --button-text: #fff;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #202020;
+  --surface: #2b2b2b;
+  --ink: #f2f2f2;
+  --muted: #c0c0c0;
+  --line: #555;
+  --accent: #40834f;
+  --button-text: #fff;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; background: var(--page); color: var(--ink); }
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+.page-shell { width: min(100% - 32px, 1000px); margin: 0 auto; }
+.site-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.brand { margin: 0; font-size: 24px; font-weight: 700; }
+.header-actions { display: flex; align-items: center; gap: 12px; }
+.favorite-summary { margin: 0; color: var(--muted); }
+.favorite-summary span:first-child { color: #b52e2e; }
+.theme-toggle { padding: 7px 10px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); color: var(--ink); }
+.intro { padding: 22px 0; border-bottom: 1px solid var(--line); }
+.intro h2, .section-heading h2 { margin: 0 0 8px; font-size: 22px; }
+.intro-copy { margin: 0; color: var(--muted); }
+.library-section, .add-section { margin-top: 28px; }
+.section-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.section-heading h2 { margin: 0; }
+.book-count { color: var(--muted); font-size: 14px; }
+.toolbar { display: flex; gap: 10px; }
+.search-box, .select-box { display: flex; align-items: center; gap: 8px; min-height: 38px; padding: 0 10px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); color: var(--muted); }
+.search-box { flex: 1; }
+.search-box input, .select-box select { width: 100%; border: 0; outline: 0; background: transparent; color: var(--ink); font-size: 14px; }
+.select-box { min-width: 190px; }
+.status-line { margin: 14px 0; color: var(--muted); font-size: 14px; }
+.book-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.book-card { padding: 14px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); }
+.book-content { display: flex; flex-direction: column; min-height: 150px; }
+.book-title { margin: 0 0 8px; font-size: 17px; }
+.book-author, .book-genre, .book-year { margin: 0 0 6px; color: var(--muted); font-size: 14px; }
+.card-actions { display: flex; gap: 8px; margin-top: auto; padding-top: 12px; }
+.favorite-button, .delete-button, .primary-button { padding: 7px 10px; border: 1px solid var(--accent); border-radius: 4px; background: var(--accent); color: var(--button-text); font-size: 14px; }
+.favorite-button[aria-pressed="true"] { background: #784343; border-color: #784343; }
+.delete-button { border-color: #888; background: transparent; color: var(--ink); }
+.add-section { padding-top: 18px; border-top: 1px solid var(--line); }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form-field { display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; }
+.form-field input, .form-field select { width: 100%; min-height: 38px; padding: 7px 9px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); color: var(--ink); font-size: 14px; font-weight: 400; }
+.form-field input:focus, .form-field select:focus, .search-box:focus-within, .select-box:focus-within { outline: 2px solid #80a887; outline-offset: 1px; }
+.form-field input[aria-invalid="true"], .form-field select[aria-invalid="true"] { border-color: #b52e2e; }
+.field-error { min-height: 13px; color: #b52e2e; font-size: 12px; font-weight: 400; }
+.form-actions { display: flex; justify-content: flex-end; margin-top: 8px; }
+.site-footer { margin-top: 30px; padding: 16px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+
+@media (max-width: 650px) {
+  .page-shell { width: calc(100% - 24px); }
+  .site-header { align-items: flex-start; }
+  .brand { font-size: 20px; }
+  .header-actions { gap: 8px; }
+  .favorite-summary { font-size: 13px; }
+  .toolbar { flex-direction: column; }
+  .select-box { min-height: 38px; }
+  .book-grid { grid-template-columns: 1fr; }
+  .book-content { min-height: 0; }
+  .form-grid { grid-template-columns: 1fr; gap: 8px; }
+}

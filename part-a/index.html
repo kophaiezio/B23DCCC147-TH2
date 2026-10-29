@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f7fb" />
+    <title>Thư viện lớp học | Phần A</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script type="module" src="./src/app.js"></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <h1 class="brand">Thư viện lớp học</h1>
+        <div class="header-actions">
+          <p class="favorite-summary"><span aria-hidden="true">♥</span> <span id="favorite-count">0</span> yêu thích</p>
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Bật giao diện tối">☾</button>
+        </div>
+      </header>
+
+      <main>
+        <section class="intro" aria-labelledby="page-title">
+          <h2 id="page-title">Quản lý danh sách sách</h2>
+          <p class="intro-copy">Tìm sách, lọc theo thể loại hoặc thêm sách mới vào thư viện.</p>
+        </section>
+
+        <section class="library-section" aria-labelledby="library-title">
+          <div class="section-heading">
+            <div>
+              <h2 id="library-title">Tủ sách của lớp</h2>
+            </div>
+            <span class="book-count" id="book-total">0 cuốn sách</span>
+          </div>
+
+          <div class="toolbar">
+            <label class="search-box">
+              <span class="sr-only">Tìm sách theo tên</span>
+              <span aria-hidden="true">⌕</span>
+              <input id="search-input" type="search" placeholder="Tìm tên sách..." autocomplete="off" />
+            </label>
+            <label class="select-box">
+              <span class="sr-only">Lọc theo thể loại</span>
+              <select id="genre-filter">
+                <option value="all">Tất cả thể loại</option>
+              </select>
+            </label>
+          </div>
+
+          <p class="status-line" id="status-line" role="status" aria-live="polite">Đang tải…</p>
+          <div class="book-grid" id="book-grid" aria-live="polite"></div>
+        </section>
+
+        <section class="add-section" aria-labelledby="add-title">
+          <div class="section-heading">
+            <div>
+              <h2 id="add-title">Thêm sách mới</h2>
+            </div>
+          </div>
+          <form id="book-form" novalidate>
+            <div class="form-grid">
+              <label class="form-field">
+                <span>Tên sách</span>
+                <input name="title" type="text" placeholder="Ví dụ: Cho tôi xin một vé đi tuổi thơ" />
+                <small class="field-error" id="title-error"></small>
+              </label>
+              <label class="form-field">
+                <span>Tác giả</span>
+                <input name="author" type="text" placeholder="Tên tác giả" />
+                <small class="field-error" id="author-error"></small>
+              </label>
+              <label class="form-field">
+                <span>Thể loại</span>
+                <select name="genre" aria-label="Thể loại">
+                  <option value="">Chọn thể loại</option>
+                </select>
+                <small class="field-error" id="genre-error"></small>
+              </label>
+              <label class="form-field">
+                <span>Năm xuất bản</span>
+                <input name="year" type="number" min="1900" placeholder="2024" />
+                <small class="field-error" id="year-error"></small>
+              </label>
+            </div>
+            <div class="form-actions">
+              <button class="primary-button" type="submit">Thêm vào tủ sách <span aria-hidden="true">↗</span></button>
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
